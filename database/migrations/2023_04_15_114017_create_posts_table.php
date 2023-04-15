@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('body');
             $table->float('cost');
-            $table->string('image_ref');
+            $table->string('image_uri');
         });
     }
 
