@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\user\User;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
 class UserSeeder extends Seeder

@@ -15,7 +15,9 @@ class PostsSeeder extends Seeder
     public function run(): void
     {
         DB::table('posts')->insert([
+            'user_id' => 1,
             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'title' => 'Nintendo Switch OlED',
 
             'body' => 'OLED Model includes a vibrant 7-inch OLED screen with a slimmer bezel.
@@ -28,7 +30,9 @@ class PostsSeeder extends Seeder
         ]);
 
         DB::table('posts')->insert([
+            'user_id' => 1,
             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'title' => 'Steam Deck',
 
             'body' => 'We partnered with AMD to create Steam Decks custom APU, optimized for handheld gaming.
@@ -41,7 +45,9 @@ class PostsSeeder extends Seeder
         ]);
 
         DB::table('posts')->insert([
+            'user_id' => 1,
             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'title' => 'AMD Ryzen™ 7 5800X3D Gaming Processor',
 
             'body' => 'The AMD Ryzen™ 7 5800X3D is the first desktop processor with stacked L3 cache,
@@ -54,7 +60,9 @@ class PostsSeeder extends Seeder
         ]);
 
         DB::table('posts')->insert([
+            'user_id' => 1,
             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
             'title' => 'Nvidia RTX 3090',
 
             'body' => 'The GeForce RTX® 3090 Ti and 3090 are powered by Ampere—NVIDIA’s 2nd gen RTX architecture.',
