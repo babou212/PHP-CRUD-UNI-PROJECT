@@ -26,7 +26,7 @@ class PostsSeeder extends Seeder
 
             'cost' => 319.00,
 
-            'image_uri' => 'resources/images/switch_oled.jpg',
+            'image_uri' => '/images/switch_oled.jpg',
         ]);
 
         DB::table('posts')->insert([
@@ -41,7 +41,7 @@ class PostsSeeder extends Seeder
 
             'cost' => 349.00,
 
-            'image_uri' => 'resources/images/steam_deck.jpg',
+            'image_uri' => '/images/steam_deck.jpg',
         ]);
 
         DB::table('posts')->insert([
@@ -56,7 +56,7 @@ class PostsSeeder extends Seeder
 
             'cost' => 300.00,
 
-            'image_uri' => 'resources/images/5800x3D.jpg',
+            'image_uri' => '/images/5800x3D.jpg',
         ]);
 
         DB::table('posts')->insert([
@@ -69,7 +69,7 @@ class PostsSeeder extends Seeder
 
             'cost' => 1399.00,
 
-            'image_uri' => 'resources/images/rtx_3090.jpg',
+            'image_uri' => '/images/rtx_3090.jpg',
         ]);
     }
 }
