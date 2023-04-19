@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\user\User;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\PermissionRegistrar;
 
 class UserSeeder extends Seeder
@@ -19,7 +20,7 @@ class UserSeeder extends Seeder
     {
        User::create([
             'name' => 'admin',
-            'email' => 'admin@images-app.com',
+            'email' => Hash::make('admin@images-app.com'),
             'email_verified_at' => now(),
             'password' => 'admin',
         ])->assignRole('user', 'admin');
@@ -28,7 +29,7 @@ class UserSeeder extends Seeder
             'name' => 'Dylan',
             'email' => 'Cree-D1@ulster.ac.uk',
             'email_verified_at' => now(),
-            'password' => 'password1234',
+            'password' => Hash::make('password1234'),
         ])->assignRole('user', 'user');
 
         app()->make(PermissionRegistrar::class)->forgetCachedPermissions();
