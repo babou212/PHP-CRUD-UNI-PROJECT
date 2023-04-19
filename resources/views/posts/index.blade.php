@@ -28,7 +28,8 @@
             </div>
         </div>
 
-
+            <div>
+                <h3>Featured Posts</h3>
             <div class="col-md-12">
                 <div class="row grid">
                     @foreach($posts as $post)
@@ -39,9 +40,21 @@
                             <h5 class="text-center card-title" style="font-size: 1rem;">{{ $post->title }}</h5>
                             <p class="text-center card-text" style="font-size: 1rem;">{{ $post->body }}</p>
                             <p class="text-center card-text" style="font-size: 1rem;">${{ $post->cost }}</p>
+
+                            <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+
+                                <a class="btn btn-info" href="{{ route('posts.show',$post->id) }}">Show</a>
+
+                                <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
+
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                     @endforeach
                 </div>
+            </div>
         </div>
 @endsection
