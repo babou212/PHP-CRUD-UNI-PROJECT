@@ -36,8 +36,7 @@ class PostsSeeder extends Seeder
             'title' => 'Steam Deck',
 
             'body' => 'We partnered with AMD to create Steam Decks custom APU, optimized for handheld gaming.
-            It is a Zen 2 + RDNA 2 powerhouse, delivering more than enough performance to run the latest
-            AAA games in a very efficient power envelope.',
+            It is a Zen 2 + RDNA 2 powerhouse',
 
             'cost' => 349.00,
 
@@ -51,8 +50,7 @@ class PostsSeeder extends Seeder
             'title' => 'AMD Ryzen™ 7 5800X3D Gaming Processor',
 
             'body' => 'The AMD Ryzen™ 7 5800X3D is the first desktop processor with stacked L3 cache,
-            delivering unmatched 96MB of L3 cache paired with incredibly fast cores to create the world’s
-            fastest gaming desktop processor.',
+            delivering unmatched 96MB of L3 cache.',
 
             'cost' => 300.00,
 
