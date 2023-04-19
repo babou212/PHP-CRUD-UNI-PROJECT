@@ -12,12 +12,12 @@ class Post extends Model implements CanVisit
 {
     use HasFactory, HasVisits;
 
-//    protected $fillable = [
-//        'title',
-//        'body',
-//        'cost',
-//        'image_uri'
-//    ];
+    protected $fillable = [
+        'title',
+        'body',
+        'cost',
+        'image_uri'
+    ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

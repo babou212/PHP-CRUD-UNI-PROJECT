@@ -69,5 +69,32 @@ class PostsSeeder extends Seeder
 
             'image_uri' => '/images/rtx_3090.jpg',
         ]);
+
+        DB::table('posts')->insert([
+            'user_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'title' => 'AMD Ryzen™ 7 5800X3D Gaming Processor',
+
+            'body' => 'The AMD Ryzen™ 7 5800X3D is the first desktop processor with stacked L3 cache,
+            delivering unmatched 96MB of L3 cache.',
+
+            'cost' => 300.00,
+
+            'image_uri' => '/images/5800x3D.jpg',
+        ]);
+
+        DB::table('posts')->insert([
+            'user_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'title' => 'Nvidia RTX 3090',
+
+            'body' => 'The GeForce RTX® 3090 Ti and 3090 are powered by Ampere—NVIDIA’s 2nd gen RTX architecture.',
+
+            'cost' => 1399.00,
+
+            'image_uri' => '/images/rtx_3090.jpg',
+        ]);
     }
 }
