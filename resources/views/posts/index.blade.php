@@ -41,15 +41,15 @@
                             <p class="text-center card-text" style="font-size: 1rem;">{{ $post->body }}</p>
                             <p class="text-center card-text" style="font-size: 1rem;">${{ $post->cost }}</p>
 
-                            <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                            <form class="justify-center text-center" action="{{ route('posts.destroy',$post->id) }}" method="POST">
 
-                                <a class="btn btn-info" href="{{ route('posts.show',$post->id) }}">Show</a>
+                                <a class="btn btn-info text-center" href="{{ route('posts.show',$post->id) }}">Show</a>
 
-                                <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
+                                <a class="btn btn-primary text-center" href="{{ route('posts.edit',$post->id) }}">Edit</a>
 
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger text-center">Delete</button>
                             </form>
                         </div>
                     </div>

@@ -18,7 +18,7 @@ class PostsSeeder extends Seeder
             'user_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'title' => 'Nintendo Switch OlED',
+            'title' => 'Nintendo Switch OLED',
 
             'body' => 'OLED Model includes a vibrant 7-inch OLED screen with a slimmer bezel.
             The large screens vivid colours and high contrast deliver a rich handheld and tabletop
