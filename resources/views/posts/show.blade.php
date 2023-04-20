@@ -1,9 +1,5 @@
 @extends('posts.layout')
 @section('content')
-    <div class="card mt-5">
-        <div class="card-header">
-            <h2>COM431 CRUD</h2>
-        </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-12 mt-1 mr-1">
@@ -12,19 +8,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-lg-12">
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
-                </div>
 
                 <div class="col-md-12">
                     <div class="row grid d-flex justify-content-center">
-                            <div class="card col-xs-12 col-md-6 col-lg-3 p-2 mt-3 mr-3" style="background-color: #cdb4db">
-                                <img class="card-img-top" style="width: 100%; height: 15vh; object-fit: contain"
+                            <div class="card col-xs-12 col-md-6 col-lg-3 p-2 mt-3 mr-3"
+                                 style="background-color: #cdb4db; width: 100%">
+                                <img class="card-img-top" style="width: 100%; height: 20vh; object-fit: contain"
                                      src="{{ asset($post->image_uri) }}" alt="post-image">
                                 <div class="card-body">
                                     <h5 class="text-center card-title" style="font-size: 1rem;
@@ -55,5 +44,4 @@
                     </div>
                 </div>
         </div>
-    </div>
 @endsection

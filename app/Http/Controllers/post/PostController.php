@@ -109,4 +109,17 @@ class PostController
         return redirect()->route('posts.index')
             ->with('success','Post deleted successfully');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Application|Factory|\Illuminate\Foundation\Application|View
+     */
+    public function guestIndex(): View|\Illuminate\Foundation\Application|Factory|Application
+    {
+        $posts = Post::latest()->paginate(6);
+
+        return view('posts.guest',compact('posts'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }

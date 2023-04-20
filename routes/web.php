@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\post\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Models\post\Post;
 use Illuminate\Support\Facades\Route;
+use Illuminate\View\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('/', PostController::class);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -24,7 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('/',PostController::class);
     Route::resource('posts', PostController::class);
 });
 
