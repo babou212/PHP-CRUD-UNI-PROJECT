@@ -40,12 +40,7 @@
                                 <form class="justify-center text-center" action="{{ route('posts.destroy',$post->id) }}" method="POST">
 
                                     <a class="btn btn-info text-center" href="{{ route('posts.show',$post->id) }}">Show</a>
-
-                                    <a class="btn btn-primary text-center" href="{{ route('posts.edit',$post->id) }}">Edit</a>
-
                                     @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger text-center">Delete</button>
                                 </form>
                             </div>
                         </div>

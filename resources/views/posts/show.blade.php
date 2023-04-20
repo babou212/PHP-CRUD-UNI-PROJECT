@@ -2,7 +2,7 @@
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
-            <h2>COM431 CRUD APP</h2>
+            <h2>COM431 CRUD</h2>
         </div>
         <div class="card-body">
             <div class="row">
@@ -20,33 +20,40 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <img src="{{ asset($post->image_uri) }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Title:</strong>
-                                {{ $post->title }}
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Description:</strong>
-                                {{ $post->body }}
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Price:</strong>
-                                    {{ $post->cost }}
+
+                <div class="col-md-12">
+                    <div class="row grid d-flex justify-content-center">
+                            <div class="card col-xs-12 col-md-6 col-lg-3 p-2 mt-3 mr-3" style="background-color: #cdb4db">
+                                <img class="card-img-top" style="width: 100%; height: 15vh; object-fit: contain"
+                                     src="{{ asset($post->image_uri) }}" alt="post-image">
+                                <div class="card-body">
+                                    <h5 class="text-center card-title" style="font-size: 1rem;
+                                color: #ffffff">{{ $post->title }}</h5>
+
+                                    <p class="text-center card-text" style="font-size: 1rem;
+                                color: #ffffff">{{ $post->body }}</p>
+
+                                    <p class="text-center card-text" style="font-size: 1rem;
+                                color: #ffffff">Price £{{ $post->cost }}</p>
+
+                                    <form class="justify-center text-center"
+                                          action="{{ route('posts.destroy',$post->id) }}" method="POST">
+
+                                        @if(Auth::user()->hasRole('user') && $post->user_id == Auth::user()->id)
+                                        <a class="btn btn-primary text-center"
+                                           href="{{ route('posts.edit',$post->id) }}">Edit</a>
+                                        @endif
+
+                                        @if(Auth::user()->hasRole('admin'))
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger text-center">Delete</button>
+                                        @endif
+                                    </form>
                                 </div>
-                        </div>
+                            </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 @endsection

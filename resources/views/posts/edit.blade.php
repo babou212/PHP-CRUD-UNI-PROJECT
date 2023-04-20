@@ -12,25 +12,17 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-lg-12">
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
-                </div>
-                <div class="col-lg-12">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+            <div class="col-lg-12">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                     <form action="{{ route('posts.update',$post->id) }}" method="POST">
                         @csrf
                         @method('PUT')
@@ -61,5 +53,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
