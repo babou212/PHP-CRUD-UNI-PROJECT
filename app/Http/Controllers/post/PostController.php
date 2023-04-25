@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController
 {
@@ -18,7 +19,7 @@ class PostController
      */
     public function index(): View|\Illuminate\Foundation\Application|Factory|Application
     {
-        $posts = Post::latest()->paginate(6);
+        $posts = Post::latest()->paginate(12);
 
         return view('posts.index',compact('posts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -44,13 +45,22 @@ class PostController
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'body' => 'required',
+            'cost' => 'required',
+            'image' => 'file|mimes:jpg,jpeg,png,gif|max:1024',
         ]);
 
-        Post::create($request->all());
+//        $imagePath = $request->file('image')->store('images');
+        $uploadPath = 'public/images';
+        $imagePath = $request->file('image')->move($uploadPath);
+
+        $post = $request->all();
+        $post['image_uri']=$imagePath;
+
+        Post::create($post);
 
         return redirect()->route('posts.index')
-            ->with('success','Post created successfully.');
+            ->with('success','New Post created successfully.');
     }
 
     /**
@@ -74,17 +84,6 @@ class PostController
     {
         return view('posts.edit',compact('post'));
     }
-
-//    /**
-//     *
-//     *
-//     * @param Post $post
-//     * @return Application|Factory|\Illuminate\Foundation\Application|View
-//     */
-//    public function comment(Post $post): View|\Illuminate\Foundation\Application|Factory|Application
-//    {
-//        return view('posts.comment',compact('post'));
-//    }
 
     public function comment(Post $post) {
         return view('posts.comment', ['post' => $post]);
@@ -110,27 +109,6 @@ class PostController
         return redirect()->route('posts.index')
             ->with('success','Post updated successfully');
     }
-
-//    /**
-//     *
-//     *
-//     * @param Request $request
-//     * @param Post $post
-//     * @return RedirectResponse
-//     */
-//    public function addComment(Request $request, Post $post): RedirectResponse
-//    {
-//        $request->validate([
-//            'comment' => 'required',
-//        ]);
-//
-//        $postComment = $request->input('comment');
-//
-//        $post->comment($postComment);
-//
-//        return redirect()->route('posts.index')
-//            ->with('success','Comment added successfully');
-//    }
 
     /**
      *

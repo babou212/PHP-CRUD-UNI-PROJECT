@@ -14,6 +14,7 @@ class Post extends Model implements CanVisit
     use HasFactory, HasVisits;
 
     protected $fillable = [
+        'user_id',
         'title',
         'body',
         'cost',

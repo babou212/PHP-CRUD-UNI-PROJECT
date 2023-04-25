@@ -31,7 +31,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('posts.store') }}" method="POST">
+                    <form enctype="multipart/form-data" action="{{ route('posts.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -43,10 +43,24 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Description:</strong>
-                                    <textarea class="form-control" rows="6" name="description" placeholder="Description"></textarea>
+                                    <textarea class="form-control" rows="6" name="body" placeholder="Description"></textarea>
                                 </div>
                             </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Price:</strong>
+                                    <input class="form-control" name="cost" placeholder="Price"></input>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <input type="file" name="image" id="image" class="form-control" required>
+                            </div>
+
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                                 <button type="submit" class="btn btn-success">Submit</button></div>
                         </div>
                     </form>
