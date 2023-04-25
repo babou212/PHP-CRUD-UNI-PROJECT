@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@images-app.com',
             'email_verified_at' => now(),
             'password' => Hash::make('admin'),
-        ])->assignRole($admin);
+        ])->assignRole($admin, $user);
 
         User::create([
             'name' => 'Dylan',

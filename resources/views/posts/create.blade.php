@@ -1,8 +1,8 @@
 @extends('posts.layout')
 @section('content')
-    <div class="card mt-5">
+    <div class="card mt-5 mx-auto w-50">
         <div class="card-header">
-            <h2>Top Images</h2>
+            <h2>Create a New Post!</h2>
         </div>
         <div class="card-body">
             <div class="row">

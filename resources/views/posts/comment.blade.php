@@ -1,8 +1,8 @@
 @extends('posts.layout')
 @section('content')
-    <div class="card mt-5">
+    <div class="card mt-5 mx-auto w-50" >
         <div class="card-header">
-            <h1>Top Images</h1>
+            <h1>Enter your comment</h1>
         </div>
         <div class="card-body">
             <div class="row">
@@ -38,3 +38,4 @@
         </div>
     </div>
 @endsection
+

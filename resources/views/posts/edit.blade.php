@@ -1,6 +1,6 @@
 @extends('posts.layout')
 @section('content')
-    <div class="card mt-5">
+    <div class="card mt-5 mx-auto w-70">
         <div class="card-header">
             <h1>Top Images</h1>
         </div>
@@ -36,13 +36,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Description:</strong>
-                                    <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $post->body }}</textarea>
+                                    <textarea class="form-control" style="height:10vh" name="description" placeholder="Description">{{ $post->body }}</textarea>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Price:</strong>
-                                    <textarea class="form-control" style="height:150px" name="cost" placeholder="Price">{{ $post->cost }}</textarea>
+                                    <input type="text" name="cost" value="£{{ $post->cost }}" class="form-control" placeholder="£ Cost">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
