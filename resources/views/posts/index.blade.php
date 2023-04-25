@@ -1,8 +1,9 @@
 @extends('posts.layout')
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-blue-800" style="background-color: #cdb4db;">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-blue-800" style="background: #ffffff;
+        border-bottom: 3px solid #000000">
             <div class="container-fluid">
-                <h1 style="color: #ffffff">Top Images</h1>
+                <img src="{{ asset('/images/image-app-logo.jpg') }}" style="width: 5%">
                 @if (Route::has('login'))
                 <div>
                     <a href="{{ route('login') }}" type="button" class="btn btn-primary">Log in</a>
@@ -18,7 +19,7 @@
 
         <div style="margin-top: 7rem;">
             <div class="col">
-                <h3 class="text-center" style="color: #ffffff">Featured Posts</h3>
+                <h3 class="text-center" style="color: #cdb4db">Featured Posts</h3>
             </div>
 
             <div class="col-md-12">
