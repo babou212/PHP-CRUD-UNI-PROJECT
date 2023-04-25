@@ -9,7 +9,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PostController
 {
@@ -72,6 +71,7 @@ class PostController
      */
     public function show(Post $post, Comment $comment): View|\Illuminate\Foundation\Application|Factory|Application
     {
+        $post->visit()->hourlyIntervals()->withIp();
         return view('posts.show',compact('post', 'comment'));
     }
 

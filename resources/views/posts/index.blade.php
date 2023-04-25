@@ -38,6 +38,10 @@
                                 <p class="text-center card-text" style="font-size: 1rem;
                                 color: #ffffff">Price £{{ $post->cost }}</p>
 
+                                <p class="text-center card-text" style="font-size: 1rem;
+                                color: #ffffff">Views: {{ $post->withTotalVisitCount()->first()->visit_count_total }}</p>
+
+{{--                                {{ dd($post->visit()) }}--}}
                                 <form class="justify-center text-center">
 
                                     <a class="btn btn-info text-center" href="{{ route('posts.show',$post->id) }}">Show</a>
