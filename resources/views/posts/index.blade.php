@@ -13,7 +13,7 @@
                     @endauth
                 </div>
         </div>
-        <a type="button" class="btn btn-success" href="{{ route('posts.create') }}">Create New Post</a>
+        <a type="button" class="btn btn-success" href="{{ route('posts.create') }}">Create Post</a>
         </nav>
 
         <div style="margin-top: 7rem;">
@@ -37,7 +37,7 @@
                                 <p class="text-center card-text" style="font-size: 1rem;
                                 color: #ffffff">Price £{{ $post->cost }}</p>
 
-                                <form class="justify-center text-center" action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                                <form class="justify-center text-center">
 
                                     <a class="btn btn-info text-center" href="{{ route('posts.show',$post->id) }}">Show</a>
                                     @csrf

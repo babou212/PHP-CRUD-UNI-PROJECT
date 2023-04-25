@@ -26,11 +26,16 @@
                                 color: #ffffff">Price £{{ $post->cost }}</p>
 
                                     <form class="justify-center text-center"
-                                          action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                                          action="{{ route('posts.destroy', $post->id) }}" method="POST">
 
                                         @if(Auth::user()->hasRole('user') && $post->user_id == Auth::user()->id)
                                         <a class="btn btn-primary text-center"
-                                           href="{{ route('posts.edit',$post->id) }}">Edit</a>
+                                           href="{{ route('posts.edit', $post->id) }}">Edit</a>
+                                        @endif
+
+                                        @if(Auth::user()->hasRole('user'))
+                                            <a class="btn btn-primary text-center"
+                                               href="{{ route('posts.comment', $post->id) }}">Add Comment</a>
                                         @endif
 
                                         @if(Auth::user()->hasRole('admin'))

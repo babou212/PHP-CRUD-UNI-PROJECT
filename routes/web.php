@@ -1,10 +1,9 @@
 <?php
 
+use App\Http\Controllers\comment\CommentController;
 use App\Http\Controllers\post\PostController;
 use App\Http\Controllers\ProfileController;
-use App\Models\post\Post;
 use Illuminate\Support\Facades\Route;
-use Illuminate\View\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +16,7 @@ use Illuminate\View\View;
 |
 */
 
-Route::resource('/', PostController::class);
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -29,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('posts', PostController::class);
+
+    Route::get('/posts/comment/{post}', [PostController::class, 'comment'])->name('posts.comment');
+    Route::post('/posts/add-comment/', [CommentController::class, 'store'])->name('comments.store');
 });
 
 require __DIR__.'/auth.php';

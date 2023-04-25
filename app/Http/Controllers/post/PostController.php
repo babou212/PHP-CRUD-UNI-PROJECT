@@ -8,12 +8,11 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class PostController
 {
     /**
-     * Display a listing of the resource.
+     *
      *
      * @return Application|Factory|\Illuminate\Foundation\Application|View
      */
@@ -26,7 +25,7 @@ class PostController
     }
 
     /**
-     * Show the form for creating a new resource.
+     *
      *
      * @return Application|Factory|\Illuminate\Foundation\Application|View
      */
@@ -36,7 +35,7 @@ class PostController
     }
 
     /**
-     * Store a newly created resource in storage.
+     *
      *
      * @param Request $request
      * @return RedirectResponse
@@ -55,7 +54,7 @@ class PostController
     }
 
     /**
-     * Display the specified resource.
+     *
      *
      * @param Post $post
      * @return Application|Factory|\Illuminate\Foundation\Application|View
@@ -66,7 +65,7 @@ class PostController
     }
 
     /**
-     * Show the form for editing the specified resource.
+     *
      *
      * @param Post $post
      * @return Application|Factory|\Illuminate\Foundation\Application|View
@@ -76,8 +75,23 @@ class PostController
         return view('posts.edit',compact('post'));
     }
 
+//    /**
+//     *
+//     *
+//     * @param Post $post
+//     * @return Application|Factory|\Illuminate\Foundation\Application|View
+//     */
+//    public function comment(Post $post): View|\Illuminate\Foundation\Application|Factory|Application
+//    {
+//        return view('posts.comment',compact('post'));
+//    }
+
+    public function comment(Post $post) {
+        return view('posts.comment', ['post' => $post]);
+    }
+
     /**
-     * Update the specified resource in storage.
+     *
      *
      * @param Request $request
      * @param Post $post
@@ -97,8 +111,29 @@ class PostController
             ->with('success','Post updated successfully');
     }
 
+//    /**
+//     *
+//     *
+//     * @param Request $request
+//     * @param Post $post
+//     * @return RedirectResponse
+//     */
+//    public function addComment(Request $request, Post $post): RedirectResponse
+//    {
+//        $request->validate([
+//            'comment' => 'required',
+//        ]);
+//
+//        $postComment = $request->input('comment');
+//
+//        $post->comment($postComment);
+//
+//        return redirect()->route('posts.index')
+//            ->with('success','Comment added successfully');
+//    }
+
     /**
-     * Remove the specified resource from storage.
+     *
      *
      * @param Post $post
      * @return RedirectResponse
@@ -108,18 +143,5 @@ class PostController
         $post->delete();
         return redirect()->route('posts.index')
             ->with('success','Post deleted successfully');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Application|Factory|\Illuminate\Foundation\Application|View
-     */
-    public function guestIndex(): View|\Illuminate\Foundation\Application|Factory|Application
-    {
-        $posts = Post::latest()->paginate(6);
-
-        return view('posts.guest',compact('posts'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

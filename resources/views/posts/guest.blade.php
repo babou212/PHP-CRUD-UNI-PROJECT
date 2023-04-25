@@ -39,7 +39,7 @@
 
                             <form class="justify-center text-center" action="" method="POST">
 
-                                <a class="btn btn-info text-center" href="{{ route('posts.show',$post->id) }}">Show</a>
+                                <a class="btn btn-info text-center" href="{{ route('posts.guestShow',$post->id) }}">Show</a>
                                 @csrf
                             </form>
                         </div>
