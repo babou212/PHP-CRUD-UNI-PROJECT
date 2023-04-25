@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\post;
 
+use App\Models\comment\Comment;
 use App\Models\post\Post;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -69,9 +70,9 @@ class PostController
      * @param Post $post
      * @return Application|Factory|\Illuminate\Foundation\Application|View
      */
-    public function show(Post $post): View|\Illuminate\Foundation\Application|Factory|Application
+    public function show(Post $post, Comment $comment): View|\Illuminate\Foundation\Application|Factory|Application
     {
-        return view('posts.show',compact('post'));
+        return view('posts.show',compact('post', 'comment'));
     }
 
     /**

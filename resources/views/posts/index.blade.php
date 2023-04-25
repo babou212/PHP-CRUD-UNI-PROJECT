@@ -1,7 +1,7 @@
 @extends('posts.layout')
 @section('content')
         <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-blue-800" style="background: #ffffff;
-        border-bottom: 3px solid #000000">
+        border-bottom: 1px solid #000000">
             <div class="container-fluid">
                 <img src="{{ asset('/images/image-app-logo.jpg') }}" style="max-width: 50px">
                 @if (Route::has('login'))

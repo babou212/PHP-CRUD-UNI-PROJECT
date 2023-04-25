@@ -48,5 +48,17 @@
                             </div>
                     </div>
                 </div>
+
+            @foreach($post->comments as $comment)
+                <div class="card" style="margin-top: 2vh">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>{{ $comment->body }}</p>
+                        <footer class="blockquote-footer"> {{ $comment->user->name.' '.
+                            $comment->created_at->format('d.m.Y') }}</footer>
+                    </blockquote>
+                </div>
+            </div>
+            @endforeach
         </div>
 @endsection
