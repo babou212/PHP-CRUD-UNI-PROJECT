@@ -41,6 +41,27 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password1234'),
         ])->assignRole($user);
 
+        User::create([
+            'name' => 'John Smith',
+            'email' => 'Smith-J69@ulster.ac.uk',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password212'),
+        ])->assignRole($user);
+
+        User::create([
+            'name' => 'Bob Johnson',
+            'email' => 'Johnson-B420@ulster.ac.uk',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password420'),
+        ])->assignRole($user);
+
+        User::create([
+            'name' => 'John Johnson',
+            'email' => 'Johnson-J42069@ulster.ac.uk',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password42069'),
+        ])->assignRole($user);
+
         app()->make(PermissionRegistrar::class)->forgetCachedPermissions();
     }
 }

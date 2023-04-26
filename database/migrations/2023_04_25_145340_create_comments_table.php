@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
             Schema::create('comments', function (Blueprint $table) {
-                $table->increments('id');
+                $table->id();
                 $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
                 $table->foreignId('post_id')->references('id')->on('posts')->onDelete('cascade');
                 $table->integer('parent_id')->unsigned()->nullable();
