@@ -51,5 +51,7 @@ class CommentsSeeder extends Seeder
             'post_id' => 4,
             'body' => 'Awesome Post!',
         ]);
+
+        Comment::factory()->count(40)->create();
     }
 }
