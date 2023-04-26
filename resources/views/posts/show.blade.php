@@ -12,18 +12,18 @@
                 <div class="col-md-12">
                     <div class="row grid d-flex justify-content-center">
                             <div class="card col-xs-12 col-md-6 col-lg-3 p-2 mt-3 mr-3"
-                                 style="background-color: #cdb4db; width: 100%">
+                                 style="background-color: #ffffff; width: 100%">
                                 <img class="card-img-top" style="width: 100%; height: 20vh; object-fit: contain"
                                      src="{{ asset($post->image_uri) }}" alt="post-image">
                                 <div class="card-body">
                                     <h5 class="text-center card-title" style="font-size: 1rem;
-                                color: #ffffff">{{ $post->title }}</h5>
+                                color: rgb(31 41 55)">{{ $post->title }}</h5>
 
                                     <p class="text-center card-text" style="font-size: 1rem;
-                                color: #ffffff">{{ $post->body }}</p>
+                                color: rgb(31 41 55)">{{ $post->body }}</p>
 
                                     <p class="text-center card-text" style="font-size: 1rem;
-                                color: #ffffff">Price £{{ $post->cost }}</p>
+                               color: rgb(31 41 55)">Price £{{ $post->cost }}</p>
 
                                     <form class="justify-center text-center"
                                           action="{{ route('posts.destroy', $post->id) }}" method="POST">

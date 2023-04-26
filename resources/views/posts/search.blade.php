@@ -1,6 +1,6 @@
 @extends('posts.layout')
 @section('content')
-<div style="margin-top: 7rem;">
+<div style="margin-top: 5rem;">
     <div class="col">
         <h3 class="text-center" style="color: #cdb4db">Results</h3>
     </div>

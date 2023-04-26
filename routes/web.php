@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
-//Route::get('/search/', 'PostController@search')->name('search');
 Route::get('/search/', [PostController::class, 'search'])->name('posts.search');
 
 Route::get('/dashboard', function () {
