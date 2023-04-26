@@ -1,27 +1,35 @@
 @extends('posts.layout')
 @section('content')
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-blue-800" style="background: #ffffff;
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: #ffffff;
         border-bottom: 1px solid #000000">
             <div class="container-fluid">
                 <img src="{{ asset('/images/image-app-logo.jpg') }}" style="max-width: 50px">
+                <div style="">
+                    @include('partials._search')
+                </div>
+
                 @if (Route::has('login'))
                 <div>
-                    <a href="{{ route('login') }}" type="button" class="btn btn-primary">Log in</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ route('login') }}" type="button" class="btn btn-primary">Log in</a></li>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" type="button" class="btn btn-primary">Register</a>
-                    @endif
-                    @endauth
+                        @if (Route::has('register'))
+                        <li style="margin-left: 1vh"><a
+                                href="{{ route('register') }}" type="button" class="btn btn-primary">Register</a></li>
+
+                        @endif
+                        @endauth
+                        <li style="margin-left: 1vh"><a type="button" class="btn btn-success"
+                                    href="{{ route('posts.create') }}">Create Post</a></li>
+                    </ul>
                 </div>
         </div>
-        <a type="button" class="btn btn-success" href="{{ route('posts.create') }}">Create Post</a>
         </nav>
 
         <div style="margin-top: 7rem;">
             <div class="col">
                 <h3 class="text-center" style="color: #cdb4db">Featured Posts</h3>
             </div>
-
             <div class="col-md-12">
                 <div class="row grid d-flex justify-content-center">
                     @foreach($posts as $post)

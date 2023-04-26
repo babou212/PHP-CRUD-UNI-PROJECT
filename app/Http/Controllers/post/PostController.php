@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use JetBrains\PhpStorm\NoReturn;
 
 class PostController
 {
@@ -122,5 +123,18 @@ class PostController
         $post->delete();
         return redirect()->route('posts.index')
             ->with('success','Post deleted successfully');
+    }
+
+    public function search(Request $request){
+        $search = $request->input('search');
+
+        $posts = Post::query()
+            ->where('title', 'LIKE', "%{$search}%")
+            ->orWhere('body', 'LIKE', "%{$search}%")
+            ->get();
+
+//        dd($search);
+
+        return view('posts.search', compact('posts'));
     }
 }
