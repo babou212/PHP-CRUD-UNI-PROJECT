@@ -1,7 +1,7 @@
 @extends('posts.layout')
 @section('content')
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: #ffffff;
-        border-bottom: 1px solid #000000">
+        border-bottom: 1px solid rgb(31 41 55); box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);">
             <div class="container-fluid">
                 <img src="{{ asset('/images/image-app-logo.jpg') }}" style="max-width: 50px">
                 <div style="">
@@ -33,7 +33,9 @@
             <div class="col-md-12">
                 <div class="row grid d-flex justify-content-center">
                     @foreach($posts as $post)
-                        <div class="card col-xs-12 col-md-6 col-lg-3 p-2 mt-3 mr-3" style="background-color: #ffffff">
+                        <div class="card col-xs-12 col-md-6 col-lg-3 p-2 mt-3 mr-3" style="background-color: #ffffff;
+                        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+
                             <img class="card-img-top" style="width: 100%; height: 15vh; object-fit: contain"
                                  src="{{ asset($post->image_uri) }}" alt="post-image">
                             <div class="card-body">

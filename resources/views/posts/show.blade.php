@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="row grid d-flex justify-content-center">
                             <div class="card col-xs-12 col-md-6 col-lg-3 p-2 mt-3 mr-3"
-                                 style="background-color: #ffffff; width: 100%">
+                                 style="background-color: #ffffff; width: 100%; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
                                 <img class="card-img-top" style="width: 100%; height: 20vh; object-fit: contain"
                                      src="{{ asset($post->image_uri) }}" alt="post-image">
                                 <div class="card-body">
@@ -50,7 +50,7 @@
                 </div>
 
             @foreach($post->comments as $comment)
-                <div class="card" style="margin-top: 2vh">
+                <div class="card" style="margin-top: 2vh; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
                         <p>{{ $comment->body }}</p>

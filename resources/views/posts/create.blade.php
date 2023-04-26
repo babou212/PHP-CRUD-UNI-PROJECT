@@ -1,6 +1,6 @@
 @extends('posts.layout')
 @section('content')
-    <div class="card mt-5 mx-auto w-50">
+    <div class="card mt-5 mx-auto w-50" style="box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
         <div class="card-header">
             <h2>Create a New Post!</h2>
         </div>
