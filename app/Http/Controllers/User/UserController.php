@@ -12,7 +12,6 @@ class UserController extends Controller
         return view('users.register');
     }
 
-    // Create New User
     public function store(Request $request) {
         $formFields = $request->validate([
             'name' => ['required', 'min:3'],

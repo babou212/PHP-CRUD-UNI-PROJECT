@@ -9,12 +9,10 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use JetBrains\PhpStorm\NoReturn;
 
 class PostController
 {
     /**
-     *
      *
      * @return Application|Factory|\Illuminate\Foundation\Application|View
      */
@@ -28,7 +26,6 @@ class PostController
 
     /**
      *
-     *
      * @return Application|Factory|\Illuminate\Foundation\Application|View
      */
     public function create(): View|\Illuminate\Foundation\Application|Factory|Application
@@ -37,7 +34,6 @@ class PostController
     }
 
     /**
-     *
      *
      * @param Request $request
      * @return RedirectResponse
@@ -51,7 +47,6 @@ class PostController
             'image' => 'file|mimes:jpg,jpeg,png,gif|max:1024',
         ]);
 
-//        $imagePath = $request->file('image')->store('images');
         $uploadPath = 'public/images';
         $imagePath = $request->file('image')->move($uploadPath);
 
@@ -68,6 +63,7 @@ class PostController
      *
      *
      * @param Post $post
+     * @param Comment $comment
      * @return Application|Factory|\Illuminate\Foundation\Application|View
      */
     public function show(Post $post, Comment $comment): View|\Illuminate\Foundation\Application|Factory|Application
@@ -78,7 +74,6 @@ class PostController
 
     /**
      *
-     *
      * @param Post $post
      * @return Application|Factory|\Illuminate\Foundation\Application|View
      */
@@ -87,12 +82,12 @@ class PostController
         return view('posts.edit',compact('post'));
     }
 
-    public function comment(Post $post) {
+    public function comment(Post $post): View|\Illuminate\Foundation\Application|Factory|Application
+    {
         return view('posts.comment', ['post' => $post]);
     }
 
     /**
-     *
      *
      * @param Request $request
      * @param Post $post
@@ -114,7 +109,6 @@ class PostController
 
     /**
      *
-     *
      * @param Post $post
      * @return RedirectResponse
      */
@@ -125,6 +119,11 @@ class PostController
             ->with('success','Post deleted successfully');
     }
 
+    /**
+     *
+     * @param Request $request
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
+     */
     public function search(Request $request){
         $search = $request->input('search');
 
@@ -133,8 +132,6 @@ class PostController
             ->orWhere('body', 'LIKE', "%{$search}%")
             ->orWhere('cost', 'LIKE', "%{$search}%")
             ->get();
-
-//        dd($search);
 
         return view('posts.search', compact('posts'));
     }

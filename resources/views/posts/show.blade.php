@@ -55,7 +55,17 @@
                     <blockquote class="blockquote mb-0">
                         <p>{{ $comment->body }}</p>
                         <footer class="blockquote-footer"> {{ $comment->user->name.' '.
-                            $comment->created_at->format('d.m.Y') }}</footer>
+                            $comment->created_at->format('d.m.Y') }}
+
+                            @if(Auth::user()->hasRole('admin'))
+                                <form class="justify-center text-center"
+                                      action="{{ route('comment.destroy', $comment->id) }}" method="POST">
+
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger text-center">Delete</button>
+                            @endif
+                        </footer>
                     </blockquote>
                 </div>
             </div>
