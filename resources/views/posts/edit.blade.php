@@ -42,7 +42,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Price:</strong>
-                                    <input type="text" name="cost" value="£{{ $post->cost }}" class="form-control" placeholder="£ Cost">
+                                    <input type="text" name="cost" value="{{ $post->cost }}" class="form-control" placeholder="£ Cost">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -131,6 +131,7 @@ class PostController
         $posts = Post::query()
             ->where('title', 'LIKE', "%{$search}%")
             ->orWhere('body', 'LIKE', "%{$search}%")
+            ->orWhere('cost', 'LIKE', "%{$search}%")
             ->get();
 
 //        dd($search);
